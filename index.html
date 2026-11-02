@@ -4,47 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WEATHER</title>
+    <title>Weather</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
-
     <div class="card">
         <div class="search">
-            <input type="search" placeholder="Enter city name...">
-            <img src="/images/search.png" alt="" cl>
-        </div>
-        <div class="error">
-            <p class="errorpar">Invalid city name.</p>
+            <input type="search" placeholder="Enter city name" id="cityInput">
+            <img src="./images/search.png" alt="">
         </div>
         <div class="weather">
-            <div>
-                <img class="weather-icon" src="" alt="">
+            <!-- Weather information will be displayed here -->
+            <div class="weather-icon">
+                <img src="./images/back.jpg" alt="weather-icon">
             </div>
-            <h1 class="temprature"></h1>
-            <h2 class="city"></h2>
-            <h3 class="country"></h3>
-            <div class="details">
-                <div class="col">
-                    <img src="./images/humidity.png" alt="Humidity icon">
-                    <div>
-                        <h2>Humidty</h2>
-                        <p class="humidity"> </p>
-                    </div>
+            <div class="place">
+                <h1 class="temprature">33c </h1>
+                <h2 class="city">Kandahar</h2>
+                <h3 class="country">Af</h3>
+            </div>
+
+        </div>
+        <div class="details">
+            <div class="col">
+                <div>
+                    <img src="./images/humidity.png" alt="">
+
                 </div>
-                <div class="col wind">
-                    <img src="./images/mist.png" alt="wind Icon">
-                    <div>
-                        <h2>wind Spead</h2>
-                        <p class="wind-spead"></p>
-                    </div>
+                <p class="humidity">Humidity 50%</p>
+            </div>
+            <div class="col">
+                <div>
+                    <img src="./images/wind.png" alt="">
+
                 </div>
+                <p class="wind-speed">Wind speed 3 km/h</p>
             </div>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 
