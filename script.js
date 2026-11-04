@@ -5,15 +5,26 @@ const searchBtn = document.querySelector(".search img");
 
 async function checkWeather(city) {
     const response = await fetch(apiurl + city + `&appid=${apiKey}`);
-    var data = await response.json();
-    document.querySelector(".temprature").innerHTML = Math.round(data.main.temp) + " °C";
-    document.querySelector(".city").innerHTML = data.name;
-    document.querySelector(".country").innerHTML = data.sys.country;
-    document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
-    document.querySelector(".wind-speed").innerHTML = data.wind.speed + "km/h";
+    if (response.status == 404) {
+        document.querySelector(".error").style.display = "block";
+        document.querySelector(".weather").style.display = "none";
+        document.querySelector(".details").style.display = "none";
 
-    console.log(data);
+    } else {
+
+        var data = await response.json();
+        document.querySelector(".temprature").innerHTML = Math.round(data.main.temp) + " °C";
+        document.querySelector(".city").innerHTML = data.name;
+        document.querySelector(".country").innerHTML = data.sys.country;
+        document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+        document.querySelector(".wind-speed").innerHTML = data.wind.speed + "km/h";
+        document.querySelector(".error").style.display = "none";
+        document.querySelector(".weather").style.display = "flex";
+        document.querySelector(".details").style.display = "flex";
+        console.log(data);
+    }
 }
+
 searchBtn.addEventListener("click", () => {
     checkWeather(searchBox.value);
 });
